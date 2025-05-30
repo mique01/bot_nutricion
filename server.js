@@ -191,7 +191,7 @@ async function getMediaUrl(mediaId) {
   }
   try {
     const { data } = await axios.get(
-      `https://graph.facebook.com/v19.0/${mediaId}`,
+      `https://graph.facebook.com/v22.0/${mediaId}`,
       { headers: { Authorization: `Bearer ${token}` } }
     );
     const mediaUrl = data.url;
@@ -217,7 +217,7 @@ async function getMediaUrl(mediaId) {
 
 // Enviar mensaje de texto a WhatsApp usando Cloud API
 async function sendWhatsappMessage(to, text) {
-  const url = `https://graph.facebook.com/v19.0/${process.env.PHONE_NUMBER_ID}/messages`;
+  const url = `https://graph.facebook.com/v22.0/${process.env.PHONE_NUMBER_ID}/messages`;
   const token = process.env.WHATSAPP_TOKEN;
 
   if (!process.env.PHONE_NUMBER_ID || !token) {
